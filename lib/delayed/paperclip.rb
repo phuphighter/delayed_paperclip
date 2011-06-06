@@ -33,7 +33,7 @@ module Delayed
           return unless self.send(:"#{name}_processing?")
 
           self.send("#{name}_processing=", false)
-          self.save(false)
+          self.save(:validate => false)
         end
 
         define_method "#{name}_processing!" do
@@ -101,8 +101,10 @@ module Paperclip
           end
         end
       end
+      
+      super
     end
     
-    alias_method_chain :url, :processed
+    include Paperclip
   end
 end

@@ -1,4 +1,5 @@
 test:
-  adapter: sqlite3
-  database: ":memory:"
+  adapter: mysql2
+  database: delayed_paperclip
+  host: localhost
 
